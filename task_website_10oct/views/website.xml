@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_task" name="Website task" inherit_id="website.homepage">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div class="container">
+                <h1 class="text-center">Products &amp; Customer Details</h1>
+                <button type="button" id="show_product_btn" class="btn btn-primary">Show Products</button>
+                <button type="button" id="show_customer_btn" class="btn btn-primary">Show Customers</button>
+                <div class="show_result"></div>
+
+            </div>
+        </xpath>
+    </template>
+    <template id="all_record" name="All Record">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="data_list" t-as="data">
+                    <tr>
+                        <td>
+                            <t t-esc="data.id" />
+                        </td>
+                        <td>
+                            <t t-esc="data.name" />
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+        <a type="button" href="#" class="btn btn-primary load_more">Load more <i class="fa fa-chevron-down"></i></a>
+    </template>
+</odoo>
